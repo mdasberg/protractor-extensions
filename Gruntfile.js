@@ -39,10 +39,11 @@ module.exports = function (grunt) {
                 options: {
                     open: false,
                     middleware: function (connect) {
-                        var config = grunt.config.get('config');
+                        var serveStatic = require('serve-static'),
+                            config = grunt.config.get('config');
                         return [
-                            connect().use('/node_modules', connect.static('./node_modules')),
-                            connect().use('/', connect.static('test/protractor')),
+                            connect().use('/node_modules', serveStatic('node_modules')),
+                            connect().use('/', serveStatic('test/protractor')),
                         ];
                     }
                 }
