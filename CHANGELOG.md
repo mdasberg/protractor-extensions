@@ -1,3 +1,10 @@
+<a name="0.2.1"></a>
+# 0.2.1 (2016-01-12)
+
+## Features
+- Add blur action
+- Add hasFocus validation
+
 <a name="0.2.0"></a>
 # 0.2.0 (2015-12-23)
 
