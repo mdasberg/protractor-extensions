@@ -4,7 +4,7 @@ API extensions for ElementFinder
 ## Install
 
 ```bash
-$ npm install protractor-extensions --save
+$ npm install protractor-extensions --save-dev
 ```
 
 ## Usage
