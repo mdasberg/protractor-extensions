@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var promise = require('protractor').prmoise;
+    var promise = require('protractor').promise;
     var ElementFinder = require('protractor').ElementFinder;
 
     /**
