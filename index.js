@@ -1,6 +1,7 @@
 (function () {
     'use strict';
 
+    var promise = require('protractor').prmoise;
     var ElementFinder = require('protractor').ElementFinder;
 
     /**
@@ -48,6 +49,21 @@
             }
             return true;
         });
-    }
+    };
+
+    ElementFinder.prototype.isVisible = function() {
+        var self = this;
+        var deferredVisibility = promise.defer();
+        self.isPresent().then(function(isPresent) {
+            if (!isPresent) {
+                deferredVisibility.fulfill(false);
+            } else {
+                self.isDisplayed().then(function(isDisplayed) {
+                    deferredVisibility.fulfill(isDisplayed)
+                });
+            }
+        });
+        return deferredVisibility.promise;
+    };
 
 })();
