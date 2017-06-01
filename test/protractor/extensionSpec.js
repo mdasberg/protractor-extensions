@@ -3,11 +3,15 @@ describe('protractor-extensions', function () {
     require('../../index.js')
 
     var theElement,
-        theInputElement;
+        theInputElement,
+        theHiddenElement,
+        theAbsentElement;
 
     beforeEach(function () {
         browser.get('extension.html');
         theElement = element(by.id('theElement'));
+        theHiddenElement = element(by.id('theHiddenElement'));
+        theAbsentElement = element(by.id('theAbsentElement'));
         theInputElement = element(by.id('theInputElement'))
     });
 
@@ -25,6 +29,16 @@ describe('protractor-extensions', function () {
 
     it('should not have the given classes present', function() {
         expect(theElement.hasClasses(['a', 'x'])).toBeFalsy();
+    });
+
+    it('should make theElement visible', function(){
+        expect(theElement.isVisible()).toBeTruthy();
+    });
+    it('should make theHiddenElement not visible', function(){
+        expect(theHiddenElement.isVisible()).toBeFalsy();
+    });
+    it('should make theAbsentElement not visible', function(){
+        expect(theAbsentElement.isVisible()).toBeFalsy();
     });
 
     it('should focus and blur', function() {
